@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Codificación del documento -->
     <meta charset="UTF-8" />
+
+    <!-- Vista responsiva en dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Título del documento -->
     <title>Custom Elements</title>
+
+    <!-- Estilo global: afecta solo elementos fuera del shadow DOM -->
     <style>
       h2 {
         color: blue;
@@ -11,14 +18,22 @@
     </style>
   </head>
   <body>
-    <h2 class="title">Soy un titulo</h2>
-    <template>
+    <!-- Título que usa estilos del DOM principal -->
+    <h2 class="title">Soy un título</h2>
+
+    <!-- Template HTML estático (no usado automáticamente).
+         Este no afecta nada a menos que lo uses desde JS -->
+    <template id="template-ejemplo">
       <h2>Hola mundo again</h2>
       <div>
         <p>Soy más texto ejemplo de la clase</p>
       </div>
     </template>
+
+    <!-- Componente personalizado, su contenido se inyecta desde JS -->
     <my-element></my-element>
+
+    <!-- Carga del módulo JavaScript que define el componente -->
     <script type="module" src="./my-element.js"></script>
   </body>
 </html>
