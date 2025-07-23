@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Define la codificación de caracteres como UTF-8 -->
     <meta charset="UTF-8" />
+
+    <!-- Configura la escala inicial para un diseño responsivo en móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Título de la pestaña del navegador -->
     <title>Custom Elements</title>
   </head>
   <body>
+    <!-- Elemento externo del DOM principal (no parte del componente) -->
     <h2 class="title">Soy un titulo</h2>
+
+    <!-- Instancia del componente personalizado <my-element> -->
     <my-element>
+      <!-- Este <span> se insertará en el <slot name="title"> dentro del componente -->
       <span slot="title">Soy el titulo</span>
+
+      <!-- Este <span> se insertará en el <slot name="parrafo"> dentro del componente -->
       <span slot="parrafo">Soy el texto del parrafo</span>
     </my-element>
+
+    <!-- Carga del módulo JavaScript que define <my-element> -->
     <script type="module" src="./my-element.js"></script>
   </body>
 </html>
