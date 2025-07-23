@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Codificación estándar -->
     <meta charset="UTF-8" />
+
+    <!-- Vista responsiva en dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Título del documento -->
     <title>Custom Elements</title>
+
+    <!-- Estilo global para el documento -->
     <style>
       .title {
         color: blue;
@@ -11,14 +18,22 @@
     </style>
   </head>
   <body>
-    <h2 class="title">Soy un titulo</h2>
-    <template>
+    <!-- Elemento normal con clase para aplicar estilo -->
+    <h2 class="title">Soy un título</h2>
+
+    <!-- Template HTML que se puede usar desde JavaScript.
+         NO se muestra en pantalla hasta que se inserta dinámicamente. -->
+    <template id="template-ejemplo">
       <h2>Hola mundo again</h2>
       <div>
         <p>Soy más texto ejemplo de la clase</p>
       </div>
     </template>
+
+    <!-- Nuestro Custom Element -->
     <my-element></my-element>
+
+    <!-- Script JS que define e implementa el custom element -->
     <script type="module" src="./my-element.js"></script>
   </body>
 </html>

@@ -1,7 +1,13 @@
-class myElement extends HTMLElement {
+// Definición del componente personalizado <my-element>
+class MyElement extends HTMLElement {
   constructor() {
-    super();
+    super(); // Siempre se llama al constructor de HTMLElement
+
+    // Se recomienda usar Shadow DOM para encapsular estilos
+    this.attachShadow({ mode: "open" });
   }
+
+  // Método que retorna el contenido del componente como plantilla HTML
   getTemplate() {
     const template = document.createElement("template");
     template.innerHTML = `
@@ -15,6 +21,8 @@ class myElement extends HTMLElement {
     `;
     return template;
   }
+
+  // Método que retorna los estilos del componente (encapsulados si se usa Shadow DOM)
   getStyles() {
     return `
       <style>
@@ -24,11 +32,17 @@ class myElement extends HTMLElement {
       </style>
     `;
   }
+
+  // Método que renderiza el contenido del template dentro del shadow DOM
   render() {
-    this.appendChild(this.getTemplate().content.cloneNode(true));
+    this.shadowRoot.appendChild(this.getTemplate().content.cloneNode(true));
   }
+
+  // Se ejecuta automáticamente cuando el componente se inserta en el DOM
   connectedCallback() {
     this.render();
   }
 }
-customElements.define("my-element", myElement);
+
+// Registro del componente personalizado con el nombre <my-element>
+customElements.define("my-element", MyElement);
