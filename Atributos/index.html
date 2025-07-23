@@ -6,12 +6,21 @@
     <title>Custom Elements</title>
   </head>
   <body>
+    <!-- Título normal dentro del body -->
     <h2 class="title">Soy un titulo</h2>
+
+    <!-- Uso de un Web Component personalizado llamado <my-element> -->
+    <!-- Se pasan tres atributos personalizados: -->
+    <!-- - title: el título que debería renderizar el componente -->
+    <!-- - parrafo: el texto del párrafo a mostrar -->
+    <!-- - img: la URL de una imagen que se usará dentro del componente -->
     <my-element
       title="Soy un titulo!"
       parrafo="Soy el texto del parrafo"
       img="https://avatars3.githubusercontent.com/u/1905708?s=280&v=4"
     ></my-element>
+
+    <!-- Se importa el archivo JavaScript que define el componente <my-element> -->
     <script type="module" src="./my-element.js"></script>
   </body>
 </html>
