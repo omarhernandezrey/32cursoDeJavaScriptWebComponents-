@@ -6,24 +6,60 @@
     <title>Host</title>
   </head>
   <body>
+    <!-- 
+      Web Component básico:
+      <my-element> es un componente personalizado que usa Shadow DOM.
+      Los elementos con el atributo "slot" se proyectan en las ranuras 
+      correspondientes definidas dentro del componente.
+    -->
     <my-element>
+      <!-- El "slot" indica dónde se insertará este contenido dentro del Shadow DOM -->
       <span slot="title">Hola desde un componente 1</span>
       <span slot="parrafo">Soy texto ejemplo</span>
     </my-element>
+
+    <!-- 
+      Estilizado con clases CSS:
+      Aquí se aplica la clase "blue" al componente.
+      Esta clase puede ser utilizada para aplicar estilos al componente 
+      desde el exterior (documento principal) o desde dentro del componente
+      usando :host(.blue) en el CSS del componente.
+    -->
     <my-element class="blue">
       <span slot="title">Hola desde un componente 2</span>
       <span slot="parrafo">Soy texto ejemplo</span>
     </my-element>
+
+    <!-- 
+      Estilizado con atributos:
+      Se usa el atributo "yellow" (sin valor) que puede ser detectado 
+      desde el componente usando :host([yellow]) en el CSS del componente.
+      También puede detectarse en JavaScript con attributeChangedCallback.
+    -->
     <my-element yellow>
       <span slot="title">Hola desde un componente 3</span>
       <span slot="parrafo">Soy texto ejemplo</span>
     </my-element>
+
+    <!-- 
+      Componente dentro de otro elemento:
+      Aquí el componente está anidado dentro de un <article>.
+      Esto demuestra cómo se pueden componer interfaces complejas
+      combinando elementos HTML estándar con Web Components.
+    -->
     <article class="card">
       <my-element yellow>
         <span slot="title">Hola desde un componente 3</span>
         <span slot="parrafo">Soy texto ejemplo</span>
       </my-element>
     </article>
+
+    <!-- 
+      Importación del componente:
+      Carga el archivo JavaScript que define el Web Component.
+      Ahí es donde se registra el elemento personalizado con 
+      customElements.define('my-element', MyElement);
+    -->
     <script src="./my-element.js"></script>
   </body>
 </html>
