@@ -6,12 +6,27 @@
     <title>Slotted</title>
   </head>
   <body>
+    <!-- 
+      my-element: Es nuestro componente personalizado (Web Component)
+      Dentro de él colocamos contenido que será distribuido en los slots del componente
+    -->
     <my-element>
+      <!-- 
+        Este span se colocará en el slot con name="title" 
+        Los elementos con atributo slot son proyectados en el Shadow DOM
+      -->
       <span slot="title">Hola desde una etiqueta h1</span>
+      
+      <!-- 
+        Este span tiene:
+        1. El atributo slot="parrafo" para indicar dónde debe insertarse
+        2. La clase "text" que será usada por el selector ::slotted(.text) en el CSS
+      -->
       <span class="text" slot="parrafo"
         >Hola desde una etiqueta de parrafo</span
       >
     </my-element>
+    <!-- Importamos nuestro componente como un módulo JavaScript -->
     <script type="module" src="./my-element.js"></script>
   </body>
 </html>
