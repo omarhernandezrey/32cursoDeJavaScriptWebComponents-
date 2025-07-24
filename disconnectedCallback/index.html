@@ -3,10 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Ejemplo disconnectedCallback - Web Components</title>
   </head>
   <body>
+    <!-- 
+      Aquí declaramos nuestro elemento personalizado usando el tag que registramos.
+      Al cargar la página:
+      1. Se crea una instancia del elemento (constructor se ejecuta)
+      2. El elemento se agrega al DOM (connectedCallback se ejecuta)
+      3. El JavaScript luego lo remueve (disconnectedCallback se ejecuta)
+      
+      Abre las herramientas de desarrollador (F12) y ve a la consola
+      para ver la secuencia de mensajes que se imprimen.
+    -->
     <my-custome-element></my-custome-element>
+    
+    <!-- 
+      Cargamos nuestro script como módulo (type="module")
+      Esto permite usar importaciones ES6 si fuera necesario
+      y garantiza que el script se ejecute después de que el DOM esté listo
+    -->
     <script type="module" src="./app.js"></script>
   </body>
 </html>
