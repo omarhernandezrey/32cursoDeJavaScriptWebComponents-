@@ -5,31 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Custom Properties</title>
     <style>
+      /* 
+       * Las Custom Properties (Variables CSS) pueden ser definidas a nivel global
+       * y ser utilizadas dentro del Shadow DOM de los Web Components
+       * En este caso, estamos sobrescribiendo las variables definidas dentro del componente
+       */
       my-element {
+        /* Cambiamos el color primario a azul (por defecto es tomato en el componente) */
         --primary-color: blue;
+        /* Aumentamos el tamaño del título a 40px (por defecto es 30px) */
         --heading-primary: 40px;
       }
+
+      /* 
+       * También podemos aplicar diferentes estilos a instancias específicas 
+       * del mismo componente usando clases CSS
+       */
       .segundo {
+        /* Para los elementos con clase "segundo", el color primario será rojo */
         --primary-color: red;
       }
+
       .tercero {
+        /* Para los elementos con clase "tercero", el color secundario será lima */
         --secondary-color: lime;
+        /* Nota: las propiedades no definidas aquí mantendrán los valores del selector general o los valores por defecto */
       }
     </style>
   </head>
   <body>
+    <!-- Primer componente: usa --primary-color: blue y --heading-primary: 40px -->
     <my-element>
       <span slot="title">Hola desde un componente 1</span>
       <span slot="parrafo">Hola desde una etiqueta de parrafo</span>
     </my-element>
+
+    <!-- Segundo componente: sobrescribe solo --primary-color a rojo -->
     <my-element class="segundo">
       <span slot="title">Hola desde un componente 2</span>
       <span slot="parrafo">Hola desde una etiqueta de parrafo</span>
     </my-element>
+
+    <!-- Tercer componente: sobrescribe solo --secondary-color a lima -->
     <my-element class="tercero">
       <span slot="title">Hola desde un componente 3</span>
       <span slot="parrafo">Hola desde una etiqueta de parrafo</span>
     </my-element>
+
+    <!-- Importamos el módulo JavaScript que define nuestro componente personalizado -->
     <script type="module" src="./my-element.js"></script>
   </body>
 </html>
