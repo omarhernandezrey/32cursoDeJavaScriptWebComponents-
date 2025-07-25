@@ -3,19 +3,110 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Web Components de Terceros - Ejemplo de Aprendizaje</title>
   </head>
   <body>
+    <!-- 
+      EJEMPLO DE WEB COMPONENTS DE TERCEROS
+      =====================================
+      
+      Este archivo demuestra cómo usar Web Components creados por otros desarrolladores.
+      Los Web Components de terceros son elementos personalizados ya desarrollados
+      que podemos usar en nuestros proyectos sin tener que crearlos desde cero.
+      
+      Ventajas:
+      - Ahorra tiempo de desarrollo
+      - Código ya probado y optimizado
+      - Funcionalidades complejas listas para usar
+      - Mantenimiento por parte de la comunidad
+    -->
+
+    <!-- 
+      JELLY SWITCH COMPONENT
+      ======================
+      
+      Este es un componente de switch/toggle con animación tipo "gelatina".
+      - Elemento personalizado: <jelly-switch>
+      - ID: "js1" para poder referenciarlo desde JavaScript si es necesario
+      - Es un elemento interactivo que responde a clics del usuario
+      - Mantiene su propio estado interno (encendido/apagado)
+    -->
     <jelly-switch id="js1"></jelly-switch>
+
+    <!-- 
+      HORIZONTAL SITUATION INDICATOR COMPONENT
+      =========================================
+      
+      Este es un componente más complejo que simula un indicador de situación horizontal
+      usado en aviación. Demuestra cómo los Web Components pueden recibir múltiples
+      atributos para configurar su comportamiento.
+      
+      Atributos utilizados:
+      - heading="45.0": Dirección actual en grados (45°)
+      - heading-select="0.0": Dirección seleccionada en grados (0°)
+      - nav1-bearing="10.0": Bearing de navegación 1 en grados (10°)
+      
+      Estos atributos son propiedades reactivas del componente que actualizan
+      automáticamente la visualización cuando cambian.
+    -->
     <horizontal-situation-indicator
       heading="45.0"
       heading-select="0.0"
       nav1-bearing="10.0"
     ></horizontal-situation-indicator>
+
+    <!-- 
+      IMPORTACIÓN DE SCRIPTS DE TERCEROS
+      ===================================
+      
+      Para usar Web Components de terceros, necesitamos importar sus scripts.
+      Existen varias formas de hacerlo:
+    -->
+
+    <!-- 
+      1. SCRIPT DESDE CDN (unpkg)
+      ===========================
+      
+      - unpkg.com es un CDN que sirve paquetes de npm
+      - @0.2.3 especifica la versión exacta (recomendado para producción)
+      - /lib/index.min.js es la ruta al archivo minificado
+      - Se carga de forma síncrona (bloquea el parsing del HTML)
+    -->
     <script src="https://unpkg.com/jelly-switch@0.2.3/lib/index.min.js"></script>
+
+    <!-- 
+      2. SCRIPT TIPO MODULE
+      =====================
+      
+      - type="module" indica que es un módulo ES6
+      - Se carga de forma asíncrona (no bloquea el parsing)
+      - @latest obtiene la versión más reciente (cuidado en producción)
+      - Los módulos tienen su propio scope y no contaminan el global
+      - Soporte nativo para import/export
+    -->
     <script
       type="module"
       src="https://unpkg.com/@fboes/horizontal-situation-indicator@latest/horizontal-situation-indicator.js"
     ></script>
+
+    <!-- 
+      CONSEJOS IMPORTANTES:
+      ====================
+      
+      1. VERSIONADO: En producción, siempre especifica versiones exactas
+         Ejemplo: @1.2.3 en lugar de @latest
+      
+      2. RENDIMIENTO: Los módulos (type="module") se cargan de forma asíncrona,
+         lo que mejora el rendimiento de carga de la página
+      
+      3. COMPATIBILIDAD: Verifica que los componentes sean compatibles
+         con los navegadores que necesitas soportar
+      
+      4. DOCUMENTACIÓN: Siempre revisa la documentación del componente
+         para conocer todos los atributos y métodos disponibles
+      
+      5. DEPENDENCIAS: Algunos componentes pueden tener dependencias
+         que también necesitas incluir
+    -->
   </body>
 </html>
